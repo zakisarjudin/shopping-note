@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&display=swap");
+
+#root {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid black;
+  height: 100%;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.app-container {
+  position: relative;
+  height: 100%;
+}
+
+.header-container {
+  background-color: #283618;
+  color: #fff;
+  padding: 25px 0;
+}
+
+.header {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 2rem;
+  font-style: normal;
+  margin: 0;
+}
+
+.item-create-container,
+.item-sort-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+}
+
+.container-subsection {
+  display: flex;
+  gap: 5px;
+}
+
+.item-create-container {
+  background-color: #dda15f;
+  padding: 15px 0;
+}
+
+.item-list-container {
+  max-height: 485px;
+  overflow: auto;
+}
+
+.item-list-container table {
+  border-collapse: collapse;
+  background-color: #fefefe;
+  width: 100%;
+  margin-top: -20px;
+}
+
+.item-list-container table td {
+  border-top: 2px solid #acdcd4;
+  height: 30px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.item-list-container table td:nth-child(1) {
+  width: 10%;
+  border-right: 2px solid #e79d9d;
+}
+
+.item-list-container table td {
+  padding-left: 10px;
+}
+
+.item-sort-container {
+  background-color: #424b26;
+  padding: 10px 0;
+}
+
+.footer-container {
+  background-color: #6e4018;
+  color: #fefefe;
+  padding: 5px 0;
+}
+
+select,
+input,
+button {
+  border: 1px solid;
+  padding: 7px 15px;
+  border-radius: 25px;
+}
+
+select,
+input {
+  background-color: #fefefe;
+  color: gray;
+}
+
+button {
+  cursor: pointer;
+  background-color: #283618;
+}
+
+button:hover {
+  background-color: #63843c;
+}
+
+.btn-delete {
+  padding: 3px 8px;
+  margin-left: 5px;
+  background-color: rgb(231, 72, 72);
+  font-size: 0.7rem;
+}
+
+.btn-delete:hover {
+  background-color: rgba(241, 52, 52, 1);
+  animation: pulse 1s infinite ease;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 0px 0px rgba(241, 52, 52, 0.5);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px 3px rgba(241, 52, 52, 0.5);
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px 0px rgba(241, 52, 52, 0.5);
+  }
+}
+
+.item-list span {
+  position: relative;
+  vertical-align: middle;
+}
+
+.item-list span::after {
+  content: "";
+  position: absolute;
+  border: 0px solid;
+  width: 0%;
+  left: 0;
+  top: 50%;
+  transition: all 0.5s;
+}
+
+.item-list {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.item-list.visible {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.item-list.purchased span::after {
+  width: 100%;
+  border: 1px solid;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+  cursor: pointer;
+}
